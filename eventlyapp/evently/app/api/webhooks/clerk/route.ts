@@ -2,7 +2,11 @@ import { Webhook } from "svix";
 import { headers } from "next/headers";
 import { WebhookEvent } from "@clerk/nextjs/server";
 import { create } from "domain";
-import { createUser } from "@/lib/actions/users.actions";
+import {
+  createUser,
+  deleteUser,
+  updateUser,
+} from "@/lib/actions/users.actions";
 import { clerkClient } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
@@ -56,6 +60,7 @@ export async function POST(req: Request) {
   const { id } = evt.data;
   const eventType = evt.type;
 
+  //when user created in clerk it will store in mongodb database
   //new user creation
   if (eventType === "user.created") {
     const { id, email_addresses, username, first_name, last_name, image_url } =
@@ -81,6 +86,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: "OK", user: newUser });
   }
 
+  //when user updated in clerk it will store in mongodb database
   //update user
   if (eventType === "user.updated") {
     const { id, email_addresses, username, first_name, last_name, image_url } =
