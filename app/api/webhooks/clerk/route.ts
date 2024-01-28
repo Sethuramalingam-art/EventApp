@@ -1,7 +1,6 @@
 import { Webhook } from "svix";
 import { headers } from "next/headers";
 import { WebhookEvent } from "@clerk/nextjs/server";
-import { create } from "domain";
 import {
   createUser,
   deleteUser,
@@ -13,6 +12,7 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
   const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
+  console.log(WEBHOOK_SECRET);
 
   if (!WEBHOOK_SECRET) {
     throw new Error(
@@ -56,12 +56,15 @@ export async function POST(req: Request) {
     });
   }
 
+  console.log(evt);
+
   // Get the ID and type
   const { id } = evt.data;
   const eventType = evt.type;
 
   //when user created in clerk it will store in mongodb database
   //new user creation
+  console.log(eventType);
   if (eventType === "user.created") {
     const { id, email_addresses, username, first_name, last_name, image_url } =
       evt.data;
