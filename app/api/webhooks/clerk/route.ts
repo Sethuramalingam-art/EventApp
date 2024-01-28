@@ -5,7 +5,7 @@ import {
   createUser,
   deleteUser,
   updateUser,
-} from "../../../lib/actions/users.actions";
+} from "../../../../lib/actions/users.actions";
 import { clerkClient } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
