@@ -18,6 +18,8 @@ import { Textarea } from "@/components/ui/textarea";
 import eventFormSchema from "@/lib/validator";
 import { eventDefaultValues } from "@/constants";
 import Dropdown from "./Dropdown";
+import { FileUploader } from "./FileUploader";
+import { useState } from "react";
 
 //check type vs interface
 type EventFormProps = {
@@ -27,6 +29,8 @@ type EventFormProps = {
 
 const EventForm = ({ userId, type }: EventFormProps) => {
   const initialValues = eventDefaultValues;
+
+  const [files, setFiles] = useState<File[]>([]);
   // 1. Define your form.
   const form = useForm<z.infer<typeof eventFormSchema>>({
     resolver: zodResolver(eventFormSchema),
@@ -100,7 +104,13 @@ const EventForm = ({ userId, type }: EventFormProps) => {
             name="imageUrl"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormControl className="h-72"></FormControl>
+                <FormControl className="h-72">
+                  <FileUploader
+                    onFieldChange={field.onChange}
+                    imageUrl={field.value}
+                    setFiles={setFiles}
+                  ></FileUploader>
+                </FormControl>
                 <FormMessage />
               </FormItem>
             )}
