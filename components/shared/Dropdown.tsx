@@ -24,6 +24,7 @@ import {
   createCategory,
   getAllCategories,
 } from "@/lib/actions/category.actions";
+import Each from "./Each";
 
 type DropdownProps = {
   value?: string;
@@ -53,8 +54,9 @@ const Dropdown = ({ value, onChangeHandler }: DropdownProps) => {
         <SelectValue placeholder="Category" />
       </SelectTrigger>
       <SelectContent>
-        {categories.length > 0 &&
-          categories.map((category) => (
+        <Each
+          of={categories}
+          render={(category, index) => (
             <SelectItem
               key={category._id}
               value={category._id}
@@ -62,7 +64,8 @@ const Dropdown = ({ value, onChangeHandler }: DropdownProps) => {
             >
               {category.name}
             </SelectItem>
-          ))}
+          )}
+        ></Each>
         <AlertDialog>
           <AlertDialogTrigger className="p-medium-14 flex w-full rounded-sm py-3 pl-8 text-primary-500 hover:bg-primary-50 focus:text-primary-500">
             Add new category
