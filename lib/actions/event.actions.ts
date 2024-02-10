@@ -18,6 +18,7 @@ import {
 } from "@/types";
 
 const getCategoryByName = async (name: string) => {
+  // regular expression with options i means doesnot consider matching lower upper case's
   return Category.findOne({ name: { $regex: name, $options: "i" } });
 };
 
