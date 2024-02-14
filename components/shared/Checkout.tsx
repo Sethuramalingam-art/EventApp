@@ -2,7 +2,7 @@ import { IEvent } from "@/lib/database/models/event.model";
 import React, { useEffect } from "react";
 import { Button } from "../ui/button";
 import { loadStripe } from "@stripe/stripe-js";
-import { checkoutOrder } from "@/lib/actions/order.action";
+import { checkoutOrder } from "@/lib/actions/order.actions";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
