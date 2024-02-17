@@ -112,7 +112,6 @@ export async function getAllEvents({
 }: GetAllEventsParams) {
   try {
     await connectToDatabase();
-
     const titleCondition = query
       ? { title: { $regex: query, $options: "i" } }
       : {};
