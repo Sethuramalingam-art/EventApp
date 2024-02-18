@@ -1,0 +1,98 @@
+npx create-next-app@latest ./
+npx shadcn-ui@latest init
+npx shadcn-ui@latest add button -> for components like materialUI
+npm install uploadthing @uploadthing/react
+npm install mongoose mongodb
+
+
+
+extensions : tailwind css intellisence -> for tailwind css classes
+	     ES7+ React/ Redux/ React-native snippets -> for create react components
+
+
+clerk : easiest way to authentication with sigin page UI -> next reactJS -> npm install @clerk/nextjs
+
+
+https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes
+
+https://github.com/adrianhajdin/event_platform
+
+35.49
+
+npx shadcn-ui@latest add sheet
+npx shadcn-ui@latest add separator
+
+by default all components in nextjs is server side components
+
+https://www.youtube.com/watch?v=zgGhzuBZOQg&t=2149s
+
+https://clerk.com/docs/users/sync-data - webhooks important
+-----------------------------------------------------------
+webhooks: we re using clerk user login for authentication. So we need to sync that user data's into project database.
+Sync Clerk data to your backend with webhooks
+A common set up for applications involves a frontend for customers to interact with a backend that includes a database. Since authentication and user management happens on Clerk's side, data eventually needs to reach the application's backend.
+
+The recommended way to sync data between Clerk and your application's backend is via webhooks. In this guide, you'll learn how to enable webhooks and how to set up your backend so that it is updated every time an event happens on your Clerk instance.
+
+Given the asynchronous nature of webhooks, they might not fit in every use case out there but they are a great fit for most applications.
+
+
+npm install svix => Svix provides a package for verifying the webhook signature, making it easy to verify the authenticity of the webhook events.
+
+npm install query-string => The Query String module provides a way of parsing the URL query string(no of methods are there. check too)
+
+
+
+deployment next app in vercel
+-----------------------------
+vercel.com - login with github -> callmesethu@gmail.com
+
+create a project - event-app -> do configure eith env. varibale and deploy github project using import.
+
+after deployment into vercel we can get ur; that url we need to configure in clerk for auth so there is secret key in clrek dashboard(below link) 
+secret key to use in env.local file.
+https://dashboard.clerk.com/apps/app_2bIAYCueICNMa6cGIuCPCF7UIT2/instances/ins_2bIAYH3LOg8Jo3E7cF4d7DNyyLD/webhooks
+check in env.local file we used this
+webhook secret key: 
+whsec_xhk46nUY0eULfAH20fJuPWk6DBLJk80f
+
+vercel 
+https://vercel.com/sethuramalingam-duraisamys-projects/event-app/6FyZQgZNKKeh3MbBsGN1TmjJ7QtP 
+vercel: signin with github
+
+
+clerk dashbord:
+https://dashboard.clerk.com/apps/app_2bIAYCueICNMa6cGIuCPCF7UIT2/instances/ins_2bIAYH3LOg8Jo3E7cF4d7DNyyLD/users/user_2bavY7Qc4wu9B38Thds7R6DQ5O8
+sethuram.duraisamy140891@gmail.com
+
+ngrok dashboard:
+https://dashboard.ngrok.com/get-started/setup/windows
+sethuram.duraisamy140891@gmail.com
+
+mongodb:
+evenlty project
+
+
+react hook form with ui shadcn form
+npx shadcn-ui@latest add form
+npx shadcn-ui@latest add input
+npx shadcn-ui@latest add select
+npx shadcn-ui@latest add alert-dialog
+npx shadcn-ui@latest add textarea 
+
+
+
+form validation:
+Zod is a TypeScript-first schema declaration and validation library. I'm using the term "schema" to broadly refer to any data type, from a simple string to a complex nested object.
+
+Zod is designed to be as developer-friendly as possible. The goal is to eliminate duplicative type declarations. With Zod, you declare a validator once and Zod will automatically infer the static TypeScript type. It's easy to compose simpler types into complex data structures.
+
+uploadthing for file uploads(uploadthing.com)
+npm install uploadthing @uploadthing/react
+
+
+
+npm install react-datepicker --save
+npm i --save-dev @types/react-datepicker
+
+npx shadcn-ui@latest add checkbox
